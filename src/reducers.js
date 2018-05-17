@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
-import { CHECK } from './actions'
+import { CHECK, SUBMIT, DELETE, SELECTALL } from './actions'
+// import shortId from 'shortid'
+
 
 const INITIAL_VALUE = {
   'HkrtzegRz': {id: 'HkrtzegRz', task: 'teach react', checked: false},
@@ -12,6 +14,15 @@ function list (state = INITIAL_VALUE,action) {
     case CHECK:
       // return state.map(el => el.id === action.value ? {...el, checked:!el.checked} : {...el})
       return {...state, [action.value]: {...state[action.value], checked: !state[action.value].checked}}
+    case SUBMIT:
+      console.log('SUBMIT')
+      return state
+    case DELETE:
+      console.log('DELETE')
+      return state
+    case SELECTALL:
+      console.log('SELECTALL')
+      return state
     default: return state
   }
 }
